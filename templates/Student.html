@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+</head>
+<body>
+    <h1>Bizda bor studentlar:</h1>
+    <br
+    {% for i in student %}
+    <h3>{{i}}</h3>
+    <button><a href="/student/{{i.id}}">O'chirish</a></button>
+    <button><a href="/student_edit/{{i.id}}">Tahrirlash</a></button>
+    <% endfor %>
+    <br>
+    <br>
+    <form method="post" action="/student/">{% csrf_token %}
+        <input type="text" name="ism" placeholder="Student ism">
+        <input type="number" name="yosh" placeholder="Student yosh">
+        <input type="number" name="kurs" placeholder="Student kurs">
+        <input type="number" name="student_raqam" placeholder="Student raqami">
+        <button type="submit">Qo'shish</button>
+    </form>
+</body>
+</html>
